@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal_model.dart';
+import 'package:meals_app/widgets/meal_item_detail.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem({super.key, required this.meal});
 
   final MealModel meal;
+
+  String get complexityText {
+    final complexityName = meal.complexity.name;
+    return complexityName[0].toUpperCase() + complexityName.substring(1);
+  }
+
+  String get affordabilityText {
+    final affordabilityName = meal.affordability.name;
+    return affordabilityName[0].toUpperCase() + affordabilityName.substring(1);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +56,25 @@ class MealItem extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 8),
-                    const Row(children: []),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MealItemDetail(
+                          icon: Icons.schedule,
+                          label: "${meal.duration} min",
+                        ),
+                        const SizedBox(width: 12),
+                        MealItemDetail(
+                          icon: Icons.work,
+                          label: complexityText,
+                        ),
+                        const SizedBox(width: 12),
+                        MealItemDetail(
+                          icon: Icons.currency_rupee,
+                          label: affordabilityText,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
