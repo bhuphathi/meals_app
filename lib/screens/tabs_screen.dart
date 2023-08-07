@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal_model.dart';
 import 'package:meals_app/screens/category_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
+import 'package:meals_app/widgets/main_drawer.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({
@@ -69,6 +70,7 @@ class _TabsScreen extends State<TabsScreen> {
         ],
         currentIndex: _currentScreenIndex,
       ),
+      drawer: const MainDrawer(),
     );
   }
 }
