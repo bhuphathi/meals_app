@@ -48,6 +48,8 @@ class _TabsScreen extends ConsumerState<TabsScreen> {
           builder: (ctx) => const FilterScreen(),
         ),
       );
+    } else {
+      _selectPage(0);
     }
   }
 
