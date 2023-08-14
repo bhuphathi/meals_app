@@ -27,6 +27,7 @@ class MealDetailsScreen extends ConsumerWidget {
                   .toggleFavoriteMeals(meal);
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
+                  duration: const Duration(milliseconds: 500),
                   content: Text(wasAdded
                       ? "Added ${meal.title} to favorites"
                       : "Removed ${meal.title} from favorites"),
