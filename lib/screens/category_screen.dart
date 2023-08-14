@@ -29,7 +29,7 @@ class _CategoryScreenState extends State<CategoryScreen>
       vsync: this,
       duration: const Duration(milliseconds: 300),
       // lowerBound: 0,
-      upperBound: 200,
+      // upperBound: 1,
     );
 
     _animationController.forward();
@@ -79,9 +79,20 @@ class _CategoryScreenState extends State<CategoryScreen>
           ]),
       builder: (context, child) {
         // print(_animationController.value);
-        return Padding(
-          padding: EdgeInsets.all(
-              _animationController.upperBound - _animationController.value),
+
+        // return Padding(
+        //   padding: EdgeInsets.all(
+        //       100 - _animationController.value * 100),
+        //   child: child,
+        // );
+
+        return SlideTransition(
+          position: _animationController.drive(
+            Tween(
+              begin: const Offset(0, 0.3),
+              end: const Offset(0, 0),
+            ),
+          ),
           child: child,
         );
       },
