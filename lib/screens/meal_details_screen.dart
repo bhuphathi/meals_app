@@ -64,7 +64,10 @@ class MealDetailsScreen extends ConsumerWidget {
       ),
       body: ListView(
         children: [
-          Image.network(meal.imageUrl),
+          Hero(
+            tag: meal.id,
+            child: Image.network(meal.imageUrl),
+          ),
           const SizedBox(height: 16),
           Text(
             "Ingredients",
