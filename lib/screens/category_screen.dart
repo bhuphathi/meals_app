@@ -80,19 +80,31 @@ class _CategoryScreenState extends State<CategoryScreen>
       builder: (context, child) {
         // print(_animationController.value);
 
+        //type 1
         // return Padding(
         //   padding: EdgeInsets.all(
         //       100 - _animationController.value * 100),
         //   child: child,
         // );
 
+        //type 2
+        // return SlideTransition(
+        //   position: _animationController.drive(
+        //     Tween(
+        //       begin: const Offset(0, 0.3),
+        //       end: const Offset(0, 0),
+        //     ),
+        //   ),
+        //   child: child,
+        // );
+
+        //type 3
         return SlideTransition(
-          position: _animationController.drive(
-            Tween(
-              begin: const Offset(0, 0.3),
-              end: const Offset(0, 0),
-            ),
-          ),
+          position: Tween(
+            begin: const Offset(0, 1),
+            end: const Offset(0, 0),
+          ).animate(CurvedAnimation(
+              parent: _animationController, curve: Curves.easeInOut)),
           child: child,
         );
       },
